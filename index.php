@@ -34,9 +34,16 @@ length with at least
 1 special char 
 2 digits
 one capital letter</pre>
+            
             </div>
             <button id="sign_up">Sign up</button>
             <span>Do you have an account! <a href="#"  data=".log" data-parent=".sign">Login</a></span>
+            <div class="fail">
+               
+            </div>
+            <div class="success">
+               
+            </div>
          </div>
 </form>
 <form method="post" action="#">

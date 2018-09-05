@@ -4,9 +4,10 @@ $(function () {
 		$($(this).attr("data-parent")).addClass("d-none");
 	});
 	//main event
-	$("#sign_up").on("click", function () {
+	$("#sign_up").on("click", function (event) {
 		//functions  to run
 		EmpInputs();
+		 event.preventDefault()
 	});
 	$("#login").on("click", function (event) {
 		//functions  to run
@@ -32,12 +33,11 @@ $( '.log input')
 	data: {usrName:usrNameOrEmail,userPass:pass},
 	success:function(data){
 		 
-
-// header("LOCATION: HPg.php");
+ alert(data)
 window.location.href = "HPg.php";
 
 		 
-		 alert(data)
+		// alert(data)
 		 // console.log(data) 
 	},
 		
@@ -45,8 +45,7 @@ error: function(data){
 console.log('---------error');
 console.log(data);
 console.log(data.responseText);
-
-// $('#response').text(data.responseText);
+ 
  
 }
 });
@@ -67,32 +66,30 @@ $( '.log input')
 	//for Empty inputs
 	function EmpInputs() 
 	{
-
-		fname = $("#fname").val();
-		lname = $("#lname").val();
-		password = $("#password").val();
-		email = $("#email").val();
+ var isSignUp=true;
 		var flag = false;
 		$(".sign input").each(function () {
 
-			var inputVal = $(this).val();
-			alert(!notEmptyInput(inputVal) && !check(inputVal))
-
-			if (!notEmptyInput(inputVal) && !check(inputVal)) {
+			var inputVal = $(this).val(); 
+			 alert(notEmptyInput(inputVal) && check(inputVal))
+			if (notEmptyInput(inputVal) && check(inputVal)) {
 				flag = true;
-			} else if (!notEmptyInput(inputVal) && !checkName(inputVal)) {
+			} else if (notEmptyInput(inputVal) && checkName(inputVal)) {
 				flag = true;
-			} else if (!notEmptyInput(inputVal) && !checkName(inputVal)) {
+			} else if (notEmptyInput(inputVal) && checkName(inputVal)) {
 				flag = true;
-			} else if (!notEmptyInput(inputVal) && !isThisEmail(inputVal)) {
+			} else if (notEmptyInput(inputVal) && isThisEmail(inputVal)) {
 				flag = true;
 
 
 			} else {
 				flag = false;
+isSignUp=false;
+			 
 
 			}
-			if (flag) {
+
+		 if (!flag) {
 				$(this)
 					.siblings("pre")
 					.addClass("show");
@@ -101,9 +98,54 @@ $( '.log input')
 					.siblings("pre")
 					.removeClass("show");
 
-			} 
+				
+
+			}
 
 		});
+		if (isSignUp) 
+		{
+			signUp();
+		}	
+	}
+	function signUp()
+	{
+	var fname =	$('#fname').val();
+	var lname =	$('#lname').val();
+	var email = $('#email').val();
+	var password = $('#password').val();
+		
+			 $.ajax({
+	url: "signUp.php",
+	method: "POST",
+	data: {UsrFname:fname,UsrLname:lname,UsrEmail:email,UsrPass:password},
+	success:function(data){
+		 alert(data)
+ if (data) 
+ {
+	$('.success').text('You registered successfully, You can move into homepage, click here'+ '<a href="index.php">HomePage</a>');
+//window.location.href = "HPg.php";
+ }
+else
+
+{
+
+	$('.fail').text("'You don\'t registered may be entered email exist'");
+		
+}
+		 
+		// alert(data)
+		 // console.log(data) 
+	},
+		
+error: function(data){
+console.log('---------error');
+console.log(data);
+console.log(data.responseText);
+ 
+ 
+}
+});
 	}
 	// regx here
 	function check(password = "") {

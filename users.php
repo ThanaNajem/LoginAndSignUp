@@ -52,5 +52,37 @@ return $ValLogStmt->fetchAll(PDO::FETCH_ASSOC);
 
 }
 
+public function UsrReg($User)
+{
+  global $conn;
+try {
+  $email=$User->__get("_email");
+  $pass=sha1($User->__get("_pass"));
+  $fname=$User->__get("_fname");
+  $lname=$User->__get("_lname");
+
+  $lastInsertId = 0;
+  $regQuery = 
+"INSERT INTO
+`users`
+SET 
+`email`=:email,
+`pass`=:pass,
+`fname`=:fname, 
+`lname`=:lname;";
+$regStmt = $conn->prepare($regQuery);
+$regStmt->bindParam(':email',$email,PDO::PARAM_STR);
+$regStmt->bindParam(':pass',$pass,PDO::PARAM_STR);
+$regStmt->bindParam(':fname',$fname,PDO::PARAM_STR);
+$regStmt->bindParam(':lname',$lname,PDO::PARAM_STR);
+$regStmt->execute();
+$lastInsertId = $conn->lastInsertId();
+  
+return $lastInsertId;
+} catch (PDOException $e) {
+  echo $e->getMessage();
+}
+}
+
 }
 ?>
