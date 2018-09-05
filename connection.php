@@ -1,48 +1,48 @@
 <?php
-class Connection 
+
+class Connection
 {
-	private static $dbName = 'firsttest' ;  
-	private static $dbHost = 'localhost' ;
-	private static $dbUsername = 'root'; 
-	private static $dbUserPassword = ''; 
-	
-	private static $conn  = null; 
-	
-	public function __construct() {
-		exit('Init function is not allowed');
-	}
-	
-	public static function connect()
-	{
-	   // One connection through whole application
-       if ( self::$conn == null )
-       {      
-        try 
-        {
-          self::$conn =  new PDO( "mysql:host=".self::$dbHost.";"."dbname=".self::$dbName, self::$dbUsername, self::$dbUserPassword);  
-		  self::$conn->exec("SET NAMES utf8");
-		  /*
-		  
-PDO won't throw exceptions unless you tell it to. Have you run:
+    private static $dbName = 'firsttest';
+    private static $dbHost = 'localhost';
+    private static $dbUsername = 'root';
+    private static $dbUserPassword = '';
 
-$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-on the PDO object?
+    private static $conn = null;
 
-		  */
-		  self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		  
+    public function __construct()
+    {
+        exit('Init function is not allowed');
+    }
+
+    public static function connect()
+    {
+        // One connection through whole application
+        if (self::$conn == null) {
+            try {
+                self::$conn = new PDO("mysql:host=" . self::$dbHost . ";" . "dbname=" . self::$dbName, self::$dbUsername, self::$dbUserPassword);
+                self::$conn->exec("SET NAMES utf8");
+                /*
+
+      PDO won't throw exceptions unless you tell it to. Have you run:
+
+      $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      on the PDO object?
+
+                */
+                self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            } catch (PDOException $e) {
+                die($e->getMessage());
+            }
         }
-        catch(PDOException $e) 
-        {
-          die($e->getMessage());  
-        }
-       } 
-       return self::$conn;
-	
+        return self::$conn;
+
+    }
+
+    public static function disconect()
+    {
+        self::$conn = null;
+    }
 }
-   public static function disconect()
-	{
-		self::$conn = null;
-	}
-}
+
 ?>
