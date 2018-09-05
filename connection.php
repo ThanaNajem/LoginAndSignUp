@@ -1,7 +1,7 @@
 <?php
 class Connection 
 {
-	private static $dbName = 'management_of_graduation_projects' ;  
+	private static $dbName = 'firsttest' ;  
 	private static $dbHost = 'localhost' ;
 	private static $dbUsername = 'root'; 
 	private static $dbUserPassword = ''; 

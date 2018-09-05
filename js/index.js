@@ -8,13 +8,66 @@ $(function () {
 		//functions  to run
 		EmpInputs();
 	});
+	$("#login").on("click", function (event) {
+		//functions  to run
+		login();
+ // event.preventDefault()
+	});
+	// autherisation
+	function login()
+	{
 
+	var usrNameOrEmail = $('#usrNameOrEmail').val();
+	var pass = $('#pass').val();
+if (notEmptyInput(usrNameOrEmail)&&notEmptyInput(pass)) 
+		{
+
+$( '.log input')
+					.siblings("pre")
+					.removeClass("show");
+
+			 $.ajax({
+	url: "login.php",
+	method: "POST",
+	data: {usrName:usrNameOrEmail,userPass:pass},
+	success:function(data){
+		 
+
+// header("LOCATION: HPg.php");
+window.location.href = "HPg.php";
+
+		 
+		 alert(data)
+		 // console.log(data) 
+	},
+		
+error: function(data){
+console.log('---------error');
+console.log(data);
+console.log(data.responseText);
+
+// $('#response').text(data.responseText);
+ 
+}
+});
+		}
+		else
+		{
+$( '.log input')
+					.siblings("pre")
+					.addClass("show");
+		}
+
+	}
+
+	// function signUp()
+	// {
+
+	// }
 	//for Empty inputs
-	function EmpInputs() {
+	function EmpInputs() 
+	{
 
-		/**/
-		/**/
-		// input[type=password]
 		fname = $("#fname").val();
 		lname = $("#lname").val();
 		password = $("#password").val();
@@ -47,7 +100,7 @@ $(function () {
 				$(this)
 					.siblings("pre")
 					.removeClass("show");
-					
+
 			} 
 
 		});

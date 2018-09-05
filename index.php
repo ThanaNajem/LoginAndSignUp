@@ -8,6 +8,7 @@
    </head>
    <body>
       <div class="handler col-xs-12 col-sm-9 col-md-6 ">
+<form method="post"  action="#" >
          <div class="sign ">
             <h3>Sign Up</h3>
             <p>First Name</p>
@@ -37,15 +38,19 @@ one capital letter</pre>
             <button id="sign_up">Sign up</button>
             <span>Do you have an account! <a href="#"  data=".log" data-parent=".sign">Login</a></span>
          </div>
+</form>
+<form method="post" action="#">
          <div class="log d-none">
             <h3>login</h3>
             <p>Email</p>
-            <input type="text" class="form-control">
+            <input type="text" id="usrNameOrEmail" class="form-control">
             <p>Password</p>
-            <input type="password"  class="form-control">
-            <button id="sign_in">login</button>
+            <input type="password" id="pass"  class="form-control">
+            <button id="login">login</button>
             <span>Don't have an account! <a href="#" data=".sign" data-parent=".log">Sign Up Here</a></span>
+            <pre class="warning">Incorrect username or password</pre>
          </div>
+</form>
       </div>
       <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
       <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
