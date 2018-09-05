@@ -1,5 +1,10 @@
 <?php
 session_start();
+// if (isset($_SESSSION['userID'])
+// &&
+// !empty($_SESSSION['userID'])) {
+// 	  header('Location: HPg.php');
+// }
 require_once('users.php');
 if (
 	isset( $_POST['usrName'] )

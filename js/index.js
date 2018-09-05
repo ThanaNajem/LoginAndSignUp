@@ -1,4 +1,6 @@
 $(function () {
+
+	$('.success').text("");
 	$("a").on("click", function () {
 		$($(this).attr("data")).removeClass("d-none");
 		$($(this).attr("data-parent")).addClass("d-none");
@@ -32,9 +34,16 @@ $( '.log input')
 	method: "POST",
 	data: {usrName:usrNameOrEmail,userPass:pass},
 	success:function(data){
-		 
- alert(data)
-window.location.href = "HPg.php";
+		 alert(data)
+ if (data) 
+ {
+ 	window.location.href = "HPg.php";
+ }
+else
+{
+
+ 	window.location.href = "index.php";
+}
 
 		 
 		// alert(data)
@@ -125,7 +134,7 @@ isSignUp=false;
  if (data) 
  {
 	$('.success').text('You registered successfully, You can move into homepage');
-	
+
 //window.location.href = "HPg.php";
  }
 else
