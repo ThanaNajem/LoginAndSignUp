@@ -106,6 +106,7 @@ isSignUp=false;
 		if (isSignUp) 
 		{
 			signUp();
+			$('input').val('');
 		}	
 	}
 	function signUp()
@@ -123,14 +124,15 @@ isSignUp=false;
 		 alert(data)
  if (data) 
  {
-	$('.success').text('You registered successfully, You can move into homepage, click here'+ '<a href="index.php">HomePage</a>');
+	$('.success').text('You registered successfully, You can move into homepage');
+	
 //window.location.href = "HPg.php";
  }
 else
 
 {
 
-	$('.fail').text("'You don\'t registered may be entered email exist'");
+	$('.success').text("'You don\'t registered may be entered email exist'");
 		
 }
 		 
