@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (isset($_SESSSION['userID'])
+&&
+!empty($_SESSSION['userID'])) {
+   var_dump($_SESSSION['userID']);
+     header('Location: HPg.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en" >
    <head>

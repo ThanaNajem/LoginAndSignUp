@@ -1,5 +1,4 @@
-$(function () {
-
+$(function () { 
 	$('.success').text("");
 	$("a").on("click", function () {
 		$($(this).attr("data")).removeClass("d-none");
