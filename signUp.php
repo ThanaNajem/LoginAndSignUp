@@ -1,5 +1,5 @@
 <?php
-session_start();
+  session_start();
 require_once('users.php');
 $user = new User();
 if (isset($_POST['UsrFname'])&&isset($_POST['UsrLname'])&&isset($_POST['UsrEmail'])&&isset($_POST['UsrPass'])) {
@@ -18,7 +18,7 @@ if ($regUsrCount!=0)
 {
 	$done = true ;
 
-$_SESSSION['userID']=$regUsrCount;
+$_SESSION['userID']=$regUsrCount;
 }
 else
 {

@@ -1,9 +1,9 @@
 <?php
-session_start();
+  session_start();
 require_once('users.php');
-if (isset($_SESSSION['userID'])
+if (isset($_SESSION['userID'])
 &&
-!empty($_SESSSION['userID'])) {
+!empty($_SESSION['userID'])) {
 	  header('Location: HPg.php');
 }
 
@@ -29,8 +29,8 @@ $d=false;
 if ($LoginUserObject!=null) 
 {
 	//this is system's user
-$_SESSSION['userID']=$LoginUserObject[0]['id'];
-$_SESSSION['UsrName']=$LoginUserObject[0]['fname'].' '.$LoginUserObject[0]['lname']; 
+$_SESSION['userID']=$LoginUserObject[0]['id'];
+$_SESSION['UsrName']=$LoginUserObject[0]['fname'].' '.$LoginUserObject[0]['lname']; 
 
  $d=true;
 	

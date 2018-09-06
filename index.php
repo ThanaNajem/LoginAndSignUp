@@ -1,9 +1,9 @@
 <?php
 session_start();
-if (isset($_SESSSION['userID'])
+if (isset($_SESSION['userID'])
 &&
-!empty($_SESSSION['userID'])) {
-   var_dump($_SESSSION['userID']);
+!empty($_SESSION['userID'])) {
+   var_dump($_SESSION['userID']);
      header('Location: HPg.php');
 }
 ?>

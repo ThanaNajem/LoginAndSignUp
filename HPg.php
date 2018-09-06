@@ -2,13 +2,13 @@
 session_start();
 if
 (
-	isset($_SESSSION['userID'])
+	isset($_SESSION['userID'])
 &&
-	!empty($_SESSSION['userID'])
+	!empty($_SESSION['userID'])
 ) {
-	  header('Location: HPg.php');
-	}
-?>
+	?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,3 +30,12 @@ echo '
 </body>
 </html>
  
+
+	<?php
+	}
+	else{
+
+echo '
+<span style="display:inline-block; margin-right:5px;">Please login </span><a href="index.php">Login</a>';
+	}
+?>
