@@ -12,12 +12,14 @@ $(function () {
 	});
 	$("#login").on("click", function (event) {
 		//functions  to run
+		alert("click")
 		login();
- // event.preventDefault()
+ event.preventDefault()
 	});
 	// autherisation
 	function login()
 	{
+		alert("log")
 
 	var usrNameOrEmail = $('#usrNameOrEmail').val();
 	var pass = $('#pass').val();
@@ -36,11 +38,13 @@ $( '.log input')
 		 alert(data)
  if (data) 
  {
+ 	alert("hpg")
  	window.location.href = "HPg.php";
  }
 else
 {
-
+	alert("index")
+ 
  	window.location.href = "index.php";
 }
 
@@ -63,6 +67,9 @@ console.log(data.responseText);
 $( '.log input')
 					.siblings("pre")
 					.addClass("show");
+					 alert("err")
+					// throw new Error("Something went badly wrong!");
+					
 		}
 
 	}

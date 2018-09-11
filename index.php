@@ -18,7 +18,7 @@ if (isset($_SESSION['userID'])
    <body>
       <div class="handler col-xs-12 col-sm-9 col-md-6 ">
 <form method="post"  action="#" >
-         <div class="sign ">
+         <div class="sign d-none">
             <h3>Sign Up</h3>
             <p>First Name</p>
             <div class="fname">
@@ -54,7 +54,7 @@ one capital letter</pre>
          </div>
 </form>
 <form method="post" action="#">
-         <div class="log d-none">
+         <div class="log ">
             <h3>login</h3>
             <p>Email</p>
             <input type="text" id="usrNameOrEmail" class="form-control">
