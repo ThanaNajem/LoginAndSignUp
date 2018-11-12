@@ -1,30 +1,28 @@
 <?php
-  session_start();
+session_start();
 require_once('users.php');
 $user = new User();
-if (isset($_POST['UsrFname'])&&isset($_POST['UsrLname'])&&isset($_POST['UsrEmail'])&&isset($_POST['UsrPass'])) {
-	
-$email =$_POST['UsrEmail'];
-$pass =$_POST['UsrPass'];
-$fname =$_POST['UsrFname'];
-$lname = $_POST['UsrLname'];
-$user = new User();
-$user->__set("_email", $email);
-$user->__set("_pass", $pass);
-$user->__set("_fname", $fname);
-$user->__set("_lname", $lname);
-$regUsrCount = $user->UsrReg($user); 
-if ($regUsrCount!=0) 
-{
-	$done = true ;
-
-$_SESSION['userID']=$regUsrCount;
-}
-else
-{
-$done = false;
-}
-echo $done;
+if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['password'])) {
+    
+    $email = $_POST['email'];
+    $pass  = $_POST['password'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $user  = new User();
+    $user->__set("_email", $email);
+    $user->__set("_pass", $pass);
+    $user->__set("_fname", $fname);
+    $user->__set("_lname", $lname);
+    $regUsrCount = $user->UsrRegistration($user);
+    $done        = "";
+    if ($regUsrCount != 0) {
+        $done = true;
+        
+        $_SESSION['userID'] = $regUsrCount;
+    } else {
+        $done = false;
+    }
+    echo $done;
 }
 
 

@@ -17,17 +17,29 @@
    </head>
    <body>
       <div class="handler col-xs-12 col-sm-9 col-md-6 ">
-         <form method="post" action="#" id="loginForm">
-            <div class="log ">
-               <h3>login</h3>
+         <form method="post"   id="signUpForm">
+            <div class="signUp">
+               <h3>Sign Up</h3>
+               <p>First Name</p>
+               <div class="fname">
+                  <input type="text"  class="form-control" id="fname" name="fname"  > 
+               </div>
+               <p>Last Name</p>
+               <div class="lname">
+                  <input type="text"  class="form-control" id="lname" name="lname" > 
+               </div>
                <p>Email</p>
-               <input type="text" id="usrNameOrEmail" class="form-control" name="userName">
+               <div class="email">
+                  <input type="text"  class="form-control" id="email" name="email" >
+               </div>
                <p>Password</p>
-               <input type="password" id="pass"  class="form-control" name="password">
-               <br>
-               <button id="login">login</button>
-               <span>Don't have an account! <a href="signUpForm.php" >Sign Up Here</a></span>
-               <div id="warning"></div>
+               <div class="pass">
+                  <input type="password"  class="form-control" id="password" name="password" >
+               </div>
+               <button id="sign_up">Sign up</button>
+               <span>Do you have an account! <a href="index.php" >Login</a></span>
+               <div id="registrationStatus">
+               </div>
             </div>
          </form>
       </div>
@@ -35,6 +47,6 @@
       <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
       <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
       <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-      <script  src="js/validateAtSignUpAndValidateUser.js"></script>
+      <script  type="text/javascript" src="js/validateAtSignUpAndValidateUser.js"></script>  
    </body>
 </html>
